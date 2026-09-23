@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -20,7 +21,10 @@ class MainActivity : ComponentActivity() {
         setContent {
             PMDMUT2EllisabethMolinaRebolloTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Titulo(texto = ":OOOOOOOOO")
+                    ActividadItem(
+                        nombre = "Actividad 1",
+                        categoria = "Categoria 1"
+                    )
                 }
             }
         }
@@ -46,4 +50,15 @@ fun GreetingPreview() {
 @Composable
 fun Titulo(texto: String) {
     Text(text = texto)
+}
+
+@Composable
+fun ActividadItem(
+    nombre: String,
+    categoria: String
+) {
+    Column {
+        Text(text = nombre)
+        Text(text = categoria)
+    }
 }
