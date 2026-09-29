@@ -62,8 +62,9 @@ fun ActividadItem(
     nombre: String,
     categoria: String
 ) {
-    Column {
-
+    Column(
+        modifier = Modifier.padding(16.dp)
+    ) {
         Image(
             painter = painterResource(R.drawable.ic_cookie),
             contentDescription = "Imagen de la actividad",
