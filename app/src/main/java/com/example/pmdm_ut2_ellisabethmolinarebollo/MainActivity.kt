@@ -66,7 +66,7 @@ fun ActividadItem(
         Image(
             painter = painterResource(R.drawable.ic_cookie),
             contentDescription = "Imagen de la actividad",
-            modifier = Modifier.size(100.dp)
+            modifier = Modifier.size(120.dp)
         )
 
         Text(text = nombre)
@@ -82,7 +82,7 @@ fun ActividadItem(
 
 @Composable
 fun PantallaActividades() {
-    Row() { //como column pero en horizontal
+    Column() { //como column pero en horizontal
         ActividadItem(
             nombre = "Taller de Android",
             categoria = "Tecnología"
@@ -90,6 +90,10 @@ fun PantallaActividades() {
         ActividadItem(
             nombre = "Taller de Kotlin",
             categoria = "Tecnología"
+        )
+        ActividadItem(
+            nombre = "Taller deportivo",
+            categoria = "Deporte"
         )
     }
 }
