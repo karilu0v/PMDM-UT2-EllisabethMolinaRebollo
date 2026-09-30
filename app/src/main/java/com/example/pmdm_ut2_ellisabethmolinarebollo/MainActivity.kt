@@ -62,16 +62,19 @@ fun ActividadItem(
     categoria: String
 ) {
     Column( //coloca sus hijos en forma de columna
-        modifier = Modifier.padding(16.dp)
+        modifier = Modifier.padding(16.dp) //espacio alrededor
     ) {
         Image(
             painter = painterResource(R.drawable.ic_cookie), //que es lo que tiene que dibujar
             contentDescription = "Imagen de la actividad", //describe el contenido
             modifier = Modifier.size(120.dp) //modifica el aspecto
         )
-
-        Text(text = nombre)
-        Text(text = categoria)
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(8.dp)
+        ) { //coloca a sus hijos de forma horizontal
+            Text(text = nombre)
+            Text(text = categoria)
+        }
 
         Button(
             onClick = { }
@@ -84,7 +87,7 @@ fun ActividadItem(
 @Composable
 fun PantallaActividades() {
     Column(
-        verticalArrangement = Arrangement.spacedBy(8.dp)
+        verticalArrangement = Arrangement.spacedBy(4.dp) //spacedBy mete espacio entre los elementos
     )
     {
         ActividadItem(
