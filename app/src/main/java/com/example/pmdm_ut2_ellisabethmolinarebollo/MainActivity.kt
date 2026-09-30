@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -26,10 +27,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             PMDMUT2EllisabethMolinaRebolloTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    ActividadItem(
-                        nombre = "Actividad 1",
-                        categoria = "Categoria 1"
-                    )
+                    PantallaActividades()
                 }
             }
         }
@@ -82,3 +80,16 @@ fun ActividadItem(
     }
 }
 
+@Composable
+fun PantallaActividades() {
+    Row() { //como column pero en horizontal
+        ActividadItem(
+            nombre = "Taller de Android",
+            categoria = "Tecnología"
+        )
+        ActividadItem(
+            nombre = "Taller de Kotlin",
+            categoria = "Tecnología"
+        )
+    }
+}
