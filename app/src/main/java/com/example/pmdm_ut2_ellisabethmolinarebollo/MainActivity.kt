@@ -59,7 +59,8 @@ fun Titulo(texto: String) {
 @Composable
 fun ActividadItem(
     nombre: String,
-    categoria: String
+    categoria: String,
+    modalidad: String
 ) {
     Column( //coloca sus hijos en forma de columna
         modifier = Modifier.padding(16.dp) //espacio alrededor
@@ -69,11 +70,12 @@ fun ActividadItem(
             contentDescription = "Imagen de la actividad", //describe el contenido
             modifier = Modifier.size(120.dp) //modifica el aspecto
         )
+        Text(text = nombre)
         Row(
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) { //coloca a sus hijos de forma horizontal
-            Text(text = nombre)
             Text(text = categoria)
+            Text(text = modalidad)
         }
 
         Button(
@@ -92,15 +94,18 @@ fun PantallaActividades() {
     {
         ActividadItem(
             nombre = "Taller de Android",
-            categoria = "Tecnología"
+            categoria = "Tecnología",
+            modalidad = "Presencial"
         )
         ActividadItem(
             nombre = "Taller de Kotlin",
-            categoria = "Tecnología"
+            categoria = "Tecnología",
+            modalidad = "Presencial"
         )
         ActividadItem(
             nombre = "Taller deportivo",
-            categoria = "Deporte"
+            categoria = "Deporte",
+            modalidad = "Presencial"
         )
     }
 }
