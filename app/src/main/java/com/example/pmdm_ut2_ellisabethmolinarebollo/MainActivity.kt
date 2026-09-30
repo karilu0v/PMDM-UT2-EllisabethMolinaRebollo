@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -60,13 +61,13 @@ fun ActividadItem(
     nombre: String,
     categoria: String
 ) {
-    Column(
+    Column( //coloca sus hijos en forma de columna
         modifier = Modifier.padding(16.dp)
     ) {
         Image(
-            painter = painterResource(R.drawable.ic_cookie),
-            contentDescription = "Imagen de la actividad",
-            modifier = Modifier.size(120.dp)
+            painter = painterResource(R.drawable.ic_cookie), //que es lo que tiene que dibujar
+            contentDescription = "Imagen de la actividad", //describe el contenido
+            modifier = Modifier.size(120.dp) //modifica el aspecto
         )
 
         Text(text = nombre)
@@ -82,7 +83,10 @@ fun ActividadItem(
 
 @Composable
 fun PantallaActividades() {
-    Column() { //como column pero en horizontal
+    Column(
+        verticalArrangement = Arrangement.spacedBy(8.dp)
+    )
+    {
         ActividadItem(
             nombre = "Taller de Android",
             categoria = "Tecnología"
