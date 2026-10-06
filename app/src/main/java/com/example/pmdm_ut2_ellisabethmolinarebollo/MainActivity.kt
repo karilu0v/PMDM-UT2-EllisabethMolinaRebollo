@@ -33,10 +33,9 @@ class MainActivity : ComponentActivity() {
         setContent {
             PMDMUT2EllisabethMolinaRebolloTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    PantallaActividades()
+                    //PantallaActividades()
                     PantallaInscripcion()
-                    //Contador()
-                    //CampoNombre()
+
                 }
             }
         }
