@@ -14,7 +14,12 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -28,7 +33,9 @@ class MainActivity : ComponentActivity() {
         setContent {
             PMDMUT2EllisabethMolinaRebolloTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    PantallaActividades()
+                    //PantallaActividades()
+                    //Contador()
+                    CampoNombre()
                 }
             }
         }
@@ -110,4 +117,41 @@ fun PantallaActividades() {
             modalidad = "Presencial"
         )
     }
+}
+
+@Composable
+fun Contador(modifier: Modifier = Modifier) {
+
+    var contador by remember {
+        mutableStateOf(10)
+    }
+
+    Column (
+        modifier = Modifier.padding(16.dp)
+    ) {
+        Text("Has pulsado $contador veces")
+
+        Button(
+            onClick = {
+                contador+=2
+            }
+        ) {
+            Text("Pulsar")
+        }
+    }
+}
+
+@Composable
+fun CampoNombre() {
+
+    var nombre by remember {
+        mutableStateOf("")
+    }
+
+    TextField(
+        value = nombre,
+        onValueChange = {
+            nombre = it
+        }
+    )
 }
