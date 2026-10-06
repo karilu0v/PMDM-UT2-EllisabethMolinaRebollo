@@ -148,10 +148,17 @@ fun CampoNombre() {
         mutableStateOf("")
     }
 
-    TextField(
-        value = nombre,
-        onValueChange = {
-            nombre = it
-        }
-    )
+    Column(
+        modifier = Modifier.padding(18.dp)
+    ) {
+
+        TextField(
+            value = nombre,
+            onValueChange = { nuevoNombre ->
+                nombre = nuevoNombre
+            }
+        )
+
+        Text("Nombre introducido: $nombre")
+    }
 }
