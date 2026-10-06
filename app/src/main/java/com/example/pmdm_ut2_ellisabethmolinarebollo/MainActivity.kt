@@ -163,7 +163,6 @@ fun CampoNombre() {
     }
 }*/
 
-
 @Composable
 fun CampoNombre(
     nombre: String,
@@ -188,7 +187,7 @@ fun CampoEmail(
     )
 }
 
-@Composable
+/*@Composable
 fun PantallaInscripcion() {
     var nombre by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
@@ -222,3 +221,4 @@ fun PantallaInscripcion() {
         }
     }
 }
+*/
