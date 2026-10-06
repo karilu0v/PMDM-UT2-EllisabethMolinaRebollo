@@ -79,7 +79,9 @@ fun ActividadItem(
         }
 
         Button(
-            onClick = { }
+            onClick = {
+                println("Botón pulsado")
+            }
         ) {
             Text("Ver detalle")
         }
