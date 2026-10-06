@@ -33,9 +33,10 @@ class MainActivity : ComponentActivity() {
         setContent {
             PMDMUT2EllisabethMolinaRebolloTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    //PantallaActividades()
+                    PantallaActividades()
+                    PantallaInscripcion()
                     //Contador()
-                    CampoNombre()
+                    //CampoNombre()
                 }
             }
         }
@@ -119,7 +120,7 @@ fun PantallaActividades() {
     }
 }
 
-@Composable
+/*@Composable
 fun Contador(modifier: Modifier = Modifier) {
 
     var contador by remember {
@@ -160,5 +161,65 @@ fun CampoNombre() {
         )
 
         Text("Nombre introducido: $nombre")
+    }
+}*/
+
+
+@Composable
+fun CampoNombre(
+    nombre: String,
+    onNombreChange: (String) -> Unit
+) {
+    TextField(
+        value = nombre,
+        onValueChange = onNombreChange,
+        label = { Text("Nombre") }
+    )
+}
+
+@Composable
+fun CampoEmail(
+    email: String,
+    onEmailChange: (String) -> Unit
+) {
+    TextField(
+        value = email,
+        onValueChange = onEmailChange,
+        label = { Text("Email") }
+    )
+}
+
+@Composable
+fun PantallaInscripcion() {
+    var nombre by remember { mutableStateOf("") }
+    var email by remember { mutableStateOf("") }
+
+    Column(
+        modifier = Modifier.padding(20.dp),
+        verticalArrangement = Arrangement.spacedBy(10.dp)
+    ) {
+        Text("Inscripción")
+
+        CampoNombre(
+            nombre = nombre,
+            onNombreChange = { nuevoNombre ->
+                nombre = nuevoNombre
+            }
+        )
+
+        CampoEmail(
+            email = email,
+            onEmailChange = { nuevoEmail ->
+                email = nuevoEmail
+            }
+        )
+
+        Button(
+            onClick = {
+                println("Nombre: $nombre, email: $email")
+            }
+        ) {
+            Text("Continuar")
+        }
     }
 }
