@@ -33,8 +33,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             PMDMUT2EllisabethMolinaRebolloTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    //PantallaActividades()
-                    PantallaInscripcion()
+                    PantallaActividades()
+                    //PantallaInscripcion()
 
                 }
             }
@@ -63,7 +63,7 @@ fun Titulo(texto: String) {
     Text(text = texto)
 }
 
-@Composable
+/*@Composable
 fun ActividadItem(
     nombre: String,
     categoria: String,
@@ -119,7 +119,7 @@ fun PantallaActividades() {
     }
 }
 
-/*@Composable
+@Composable
 fun Contador(modifier: Modifier = Modifier) {
 
     var contador by remember {
