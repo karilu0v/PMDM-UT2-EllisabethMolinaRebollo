@@ -3,6 +3,7 @@ package com.example.pmdm_ut2_ellisabethmolinarebollo
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.Checkbox
@@ -34,7 +35,7 @@ fun CampoRecordatorio(
         Text(texto)
     }
 }
-@Composable
+/*@Composable
 fun CampoTurno(
     textoTurno1: String,
     textoTurno2: String,
@@ -65,7 +66,7 @@ fun CampoTurno(
 
         Text(textoTurno2)
     }
-}
+}*/
 
 @Composable
 fun CampoEmail(
@@ -99,6 +100,9 @@ fun PantallaInscripcion() {
     }
     var turno by remember {
         mutableStateOf("Mañana")
+    }
+    var resumen by remember {
+        mutableStateOf("")
     }
 
     Column(
@@ -168,10 +172,20 @@ fun PantallaInscripcion() {
 
         Button(
             onClick = {
-                println("Nombre: $nombre, email: $email, recordatorio: $recordatorio")
-            }
+                val aviso = if (recordatorio) "Sí" else "No"
+
+                resumen = "Nombre: $nombre\n" +
+                        "Correo: $email\n" +
+                        "Turno: $turno\n" +
+                        "Recordatorio: $aviso"
+            },
+            modifier = Modifier.fillMaxWidth()
         ) {
-            Text("Continuar")
+            Text("Confirmar")
+        }
+        if (resumen.isNotEmpty()) {
+            Text("Resumen de la inscripción")
+            Text(resumen)
         }
     }
 }
