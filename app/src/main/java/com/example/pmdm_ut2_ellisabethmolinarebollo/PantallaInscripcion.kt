@@ -17,8 +17,79 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-git
+@Composable
+fun CampoRecordatorio(
+    texto: String,
+    recordatorio: Boolean,
+    onCheckedChange: (Boolean) -> Unit
+) {
+    Row(
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Checkbox(
+            checked = recordatorio,
+            onCheckedChange = onCheckedChange,
+        )
 
+        Text(texto)
+    }
+}
+@Composable
+fun CampoTurno(
+    textoTurno1: String,
+    textoTurno2: String,
+    turno: String,
+    onClick: () -> Unit
+) {
+    Text("Elige un turno")
+
+    Row(
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        RadioButton(
+            selected = turno == textoTurno1,
+            onClick = onClick
+
+        )
+
+        Text(textoTurno1)
+    }
+
+    Row(
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        RadioButton(
+            selected = turno == textoTurno2,
+            onClick = onClick
+        )
+
+        Text(textoTurno2)
+    }
+}
+
+@Composable
+fun CampoEmail(
+    email: String,
+    onEmailChange: (String) -> Unit
+) {
+    TextField(
+        value = email,
+        onValueChange = onEmailChange,
+        label = { Text("Email") }
+    )
+}
+
+@Composable
+fun CampoNombre(
+    nombre: String,
+    onNombreChange: (String) -> Unit
+) {
+    TextField(
+        value = nombre,
+        onValueChange = onNombreChange,
+        label = { Text("Nombre") }
+    )
+}
 @Composable
 fun PantallaInscripcion() {
     var nombre by remember { mutableStateOf("") }
@@ -50,6 +121,14 @@ fun PantallaInscripcion() {
             }
         )
 
+       /* CampoTurno(
+            textoTurno1 = "Mañana",
+            textoTurno2 = "Tarde",
+            turno = turno,
+            OnClick = {
+                turno -> turno == "Mañana" ? turno = "Mañana": turno = "Tarde"
+            }
+        )*/
         Text("Elige un turno")
 
         Row(
@@ -77,18 +156,16 @@ fun PantallaInscripcion() {
 
             Text("Tarde")
         }
-        Row(
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Checkbox(
-                checked = recordatorio,
-                onCheckedChange = { nuevoValor ->
-                    recordatorio = nuevoValor
-                }
+        //Añadir recordatorio
+        CampoRecordatorio(
+            "Quiero recibir un recordatorio",
+            recordatorio= recordatorio,
+            onCheckedChange = { nuevoRecordatorio ->
+                recordatorio = nuevoRecordatorio
+            }
             )
 
-            Text("Quiero recibir un recordatorio")
-        }
+
         Button(
             onClick = {
                 println("Nombre: $nombre, email: $email, recordatorio: $recordatorio")

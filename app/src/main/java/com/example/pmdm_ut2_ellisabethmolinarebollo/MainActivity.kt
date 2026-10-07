@@ -163,29 +163,7 @@ fun CampoNombre() {
     }
 }*/
 
-@Composable
-fun CampoNombre(
-    nombre: String,
-    onNombreChange: (String) -> Unit
-) {
-    TextField(
-        value = nombre,
-        onValueChange = onNombreChange,
-        label = { Text("Nombre") }
-    )
-}
 
-@Composable
-fun CampoEmail(
-    email: String,
-    onEmailChange: (String) -> Unit
-) {
-    TextField(
-        value = email,
-        onValueChange = onEmailChange,
-        label = { Text("Email") }
-    )
-}
 
 /*@Composable
 fun PantallaInscripcion() {
