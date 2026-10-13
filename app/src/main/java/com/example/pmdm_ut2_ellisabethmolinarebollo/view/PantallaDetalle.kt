@@ -16,6 +16,7 @@ import com.example.pmdm_ut2_ellisabethmolinarebollo.model.Actividad
 
 @Composable
 fun PantallaDetalle(
+    modifier : Modifier = Modifier,
     actividad: Actividad,
     onInscribirse: () -> Unit
 ) {

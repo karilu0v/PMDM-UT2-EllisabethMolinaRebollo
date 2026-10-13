@@ -11,8 +11,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.pmdm_ut2_ellisabethmolinarebollo.model.actividadesEjemplo
 import com.example.pmdm_ut2_ellisabethmolinarebollo.ui.theme.PMDMUT2EllisabethMolinaRebolloTheme
 import com.example.pmdm_ut2_ellisabethmolinarebollo.view.PantallaActividades
+import com.example.pmdm_ut2_ellisabethmolinarebollo.view.PantallaDetalle
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,8 +23,13 @@ class MainActivity : ComponentActivity() {
         setContent {
             PMDMUT2EllisabethMolinaRebolloTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    PantallaActividades(modifier = Modifier.padding(innerPadding))
-                    //PantallaInscripcion()
+                    PantallaDetalle(
+                        modifier = Modifier.padding(innerPadding),
+                        actividad = actividadesEjemplo[0],
+                        onInscribirse = {
+                            println("Inscribirse")
+                        }
+                    )
 
                 }
             }
@@ -51,140 +58,3 @@ fun Titulo(texto: String) {
     Text(text = texto)
 }
 
-/*@Composable
-fun ActividadItem(
-    nombre: String,
-    categoria: String,
-    modalidad: String
-) {
-    Column( //coloca sus hijos en forma de columna
-        modifier = Modifier.padding(16.dp) //espacio alrededor
-    ) {
-        Image(
-            painter = painterResource(R.drawable.ic_cookie), //que es lo que tiene que dibujar
-            contentDescription = "Imagen de la actividad", //describe el contenido
-            modifier = Modifier.size(120.dp) //modifica el aspecto
-        )
-        Text(text = nombre)
-        Row(
-            horizontalArrangement = Arrangement.spacedBy(8.dp)
-        ) { //coloca a sus hijos de forma horizontal
-            Text(text = categoria)
-            Text(text = modalidad)
-        }
-
-        Button(
-            onClick = {
-                println("Botón pulsado")
-            }
-        ) {
-            Text("Ver detalle")
-        }
-    }
-}
-
-@Composable
-fun PantallaActividades() {
-    Column(
-        verticalArrangement = Arrangement.spacedBy(4.dp) //spacedBy mete espacio entre los elementos
-    )
-    {
-        ActividadItem(
-            nombre = "Taller de Android",
-            categoria = "Tecnología",
-            modalidad = "Presencial"
-        )
-        ActividadItem(
-            nombre = "Taller de Kotlin",
-            categoria = "Tecnología",
-            modalidad = "Presencial"
-        )
-        ActividadItem(
-            nombre = "Taller deportivo",
-            categoria = "Deporte",
-            modalidad = "Presencial"
-        )
-    }
-}
-
-@Composable
-fun Contador(modifier: Modifier = Modifier) {
-
-    var contador by remember {
-        mutableStateOf(10)
-    }
-
-    Column (
-        modifier = Modifier.padding(16.dp)
-    ) {
-        Text("Has pulsado $contador veces")
-
-        Button(
-            onClick = {
-                contador+=2
-            }
-        ) {
-            Text("Pulsar")
-        }
-    }
-}
-
-@Composable
-fun CampoNombre() {
-
-    var nombre by remember {
-        mutableStateOf("")
-    }
-
-    Column(
-        modifier = Modifier.padding(18.dp)
-    ) {
-
-        TextField(
-            value = nombre,
-            onValueChange = { nuevoNombre ->
-                nombre = nuevoNombre
-            }
-        )
-
-        Text("Nombre introducido: $nombre")
-    }
-}*/
-
-
-
-/*@Composable
-fun PantallaInscripcion() {
-    var nombre by remember { mutableStateOf("") }
-    var email by remember { mutableStateOf("") }
-
-    Column(
-        modifier = Modifier.padding(20.dp),
-        verticalArrangement = Arrangement.spacedBy(10.dp)
-    ) {
-        Text("Inscripción")
-
-        CampoNombre(
-            nombre = nombre,
-            onNombreChange = { nuevoNombre ->
-                nombre = nuevoNombre
-            }
-        )
-
-        CampoEmail(
-            email = email,
-            onEmailChange = { nuevoEmail ->
-                email = nuevoEmail
-            }
-        )
-
-        Button(
-            onClick = {
-                println("Nombre: $nombre, email: $email")
-            }
-        ) {
-            Text("Continuar")
-        }
-    }
-}
-*/
