@@ -1,4 +1,6 @@
-package com.example.pmdm_ut2_ellisabethmolinarebollo
+package com.example.pmdm_ut2_ellisabethmolinarebollo.model
+
+import com.example.pmdm_ut2_ellisabethmolinarebollo.R
 
 data class Actividad(
     val id: Int,

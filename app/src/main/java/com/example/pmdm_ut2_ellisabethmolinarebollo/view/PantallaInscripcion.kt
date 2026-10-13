@@ -1,4 +1,4 @@
-package com.example.pmdm_ut2_ellisabethmolinarebollo
+package com.example.pmdm_ut2_ellisabethmolinarebollo.view
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
